@@ -39,3 +39,45 @@ let someNumber = 33;
 let stringNumber = String(someNumber);
 console.log(stringNumber);
 console.log(typeof stringNumber);
+
+// **********************Operations**********************
+
+let value = 7;
+let negValue = -value;
+console.log(negValue);
+
+// console.log(2 + 2);
+// console.log(3 - 2);
+// console.log(2 * 2);
+// console.log(2 ** 2);
+// console.log(2 / 2);
+// console.log(2%3);
+
+let str1 = "Hello";
+let str2 = " World";
+let str3 = console.log(str1 + str2);
+
+
+// console.log("1" + 2);
+// console.log(1 + "2");
+// console.log("1" + 2 + 2);
+console.log(1 + 2 + "2");
+
+// console.log(3 + 4 * 5 % 6);
+// console.log(+true);
+// console.log(+"");
+// let num1, num2, num3;
+// num1 = num2 = num 3 = 2 + 1;
+// These code work as well but are not good in terms of code readability
+
+
+let gameCounter = 100;
+gameCounter++;
+// ++gameCounter;
+console.log(gameCounter);
+// link to study prefix and postfix increment
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment 
+
+
+// link to study
+// https://tc39.es/ecma262/multipage/abstract-operations.html#sec-type-conversion
