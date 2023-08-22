@@ -41,5 +41,20 @@ const myFunction = function(){
 let myYouTubeName = "kishandotcom"
 
 let anotherName = myYouTubeName
+anotherName = "codingChannel"
 
-console.log(anotherName)
+console.log(myYouTubeName);
+console.log(anotherName);
+
+
+let userOne = {
+    email: "user@google.com",
+    upi: "user@ibi"
+}
+
+let userTwo = userOne
+
+userTwo.email = "kishan@google.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
