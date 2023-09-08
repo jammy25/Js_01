@@ -1,0 +1,59 @@
+<!-- Task
+As I click the images they get dissappeared -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Image with a Click</title>
+</head>
+
+<body style="background-color: #414141; color: #fff">
+    <div>
+        <h2>Amazing Images</h2>
+        <ul id="images">
+            <li>
+                <img width="200px" height="150px" id="nature"
+                    src="https://images.pexels.com/photos/2682877/pexels-photo-2682877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+            </li>
+            <li>
+                <img width="200px" height="130px" id="fashion"
+                    src="https://images.pexels.com/photos/375902/pexels-photo-375902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+            </li>
+            <li>
+                <img width="200px" height="130px" id="food"
+                    src="https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+            </li>
+            <li>
+                <img width="200px" height="130px" id="fitness"
+                    src="https://images.pexels.com/photos/4024914/pexels-photo-4024914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+            </li>
+            <li>
+                <img width="200px" height="130px" id="wedding"
+                    src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.querySelector('#images').addEventListener('click', function(e){
+        // we are taking here parentNode, bcoz if we only remove img the bullet points will be there so we are targeting the whole list
+        console.log(e.target.parentNode);
+        // here we are removing parent node of the clicked object, if by mistake we click on the list intead of img, then the parent of li which is ul gets removed and so all the imgs will be removed in a single click - we need to avoid that, so we wrap our condition inside a if statement.
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    }, false)
+    
+</script>
+
+</html>
