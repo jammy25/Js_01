@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynch JS</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h1>Chai aur JS</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setInterval(function(){
+    //     console.log('Hermione', Date.now());
+    // }, 1000)
+
+    // diff syntax
+
+    let sayDate = function(){
+        console.log('Hermione', Date.now());
+    }
+    // setInterval(sayDate, 1000)
+
+    // in above syntax we can also pass parameter
+
+    let IntervalId;
+
+    let takeParameter = function(str){
+        console.log(str, Date.now());
+    }
+    
+    document.querySelector('#start').addEventListener('click', function(){
+        IntervalId = setInterval(takeParameter, 1000, 'Ronald')
+        console.log('Started');
+    })
+    // +++ clearInterval +++
+
+    // clearInterval(IntervalId)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(IntervalId)
+        console.log('Stopped');
+    })
+    
+</script>
+</html>
