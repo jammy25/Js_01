@@ -1,7 +1,7 @@
 # Project on Asynch JS
 
 ## Project Link
-[Click here](https://stackblitz.com/edit/dom-playground?file=5-unlimitedColors%2Fcode.js,5-unlimitedColors%2Findex.html)
+[Click here](https://stackblitz.com/edit/dom-playground?file=5-unlimitedColors%2Fcode.js)
 
 # Solution Code
 
