@@ -74,3 +74,59 @@ promiseFour
 .finally(() => {
     console.log('The promise is either resolved or rejected');
 })
+
+
+// ++++ Solving the same above problem, but with different syntax we won't use .then or .catch here instead we will use Asynch Await ++++
+// Async await do not handle errors well, so we use try catch along with it.
+
+const promiseFive = new Promise(function(resolve, reject){
+    setTimeout(function(){
+    let error = true;
+    if (!error) {
+        resolve({username: "javascript", password: "js@12"})
+    } else {
+        reject('Error: JS went wrong')
+    }
+    }, 1000);
+});
+
+async function consumePromiseFive(){
+    try {
+        const response = await promiseFive
+        console.log(response);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+consumePromiseFive()
+
+
+// ++++ Now let's do the ApiRequest task we did with XMLHttp, with asyn await first and then with .then(), .catch()
+
+// async function getAllUsers(){
+//     try{
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
+//         const data = await response.json()     
+        // note we are using await while converting to json as well since it also take times and if we don't add wait there it will throw an error
+        // console.log(data);
+//     } catch {
+//         console.log('E: ', error);
+//     }
+// }
+
+// getAllUsers()
+
+
+// by .then() & .catch() method
+
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(function(response){
+    return response.json();
+})
+.then(function(data){
+    console.log(data);
+})
+.catch(function(error){
+    console.log('error')
+})
