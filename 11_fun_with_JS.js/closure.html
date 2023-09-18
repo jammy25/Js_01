@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure in JS</title>
+  </head>
+  <body style="background-color: #212121;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    // Lexical Scoping - child func can inherit from parent
+
+    // function init() {
+    //   let name = "Mozilla"; 
+    //   function displayName() {
+    //       console.log(name); 
+    //   } 
+    //   displayName(); 
+    // } 
+    // init();
+
+
+    // ++++ Closure ++++
+
+    function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      return displayName
+    }
+
+    // Here the return is reference only(return displayName) prev. we were calling the function and executing now the question if we send only refernce will it take with it the lexical scoping as well or not?
+    // So when we execute myFunc() -> not only does displayName comes but also if there exist an outer func it's scope will also come 
+
+    const myFunc = makeFunc();
+    myFunc();
+  </script>
+  <script>
+    // Let's take a practical example on closure
+    // say there are two butttons which changes color on click
+
+    // document.getElementById("orange").onclick = function(){
+    //   document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById("green").onclick = function(){
+    //   document.body.style.backgroundColor = 'green'
+    // }
+
+  // Now say we have to create 50 such buttons, and an array of colors will also provided you have to add them accordingly
+  // So for this we will create a click handler
+
+  // function clickHandler(color){
+  //   document.body.style.backgroundColor = `${color}`
+  // }
+
+  // document.getElementById("green").onclick = clickHandler
+  
+  // now the problem with above line is that clickHandler is passed as a reference whereas onclick requires an excecutable func.
+  
+  // document.getElementById("green").onclick = clickHandler('orange')
+  // document.getElementById("green").onclick = clickHandler('green')
+
+  // but we pass value it will directly execute, before even clicking
+
+  // so the solution we have to change the def in the clickhandler func itself to make it work
+
+  function clickHandler(color){
+    // document.body.style.backgroundColor = `${color}`
+    return function(){
+      document.body.style.backgroundColor = `${color}`
+    }
+  }
+
+  document.getElementById('orange').onclick = clickHandler(`orange`)
+  document.getElementById('green').onclick = clickHandler(`green`)
+    
+  </script>
+</html>
